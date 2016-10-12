@@ -5,15 +5,16 @@
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
 
-# NOTE: 'module' should match the python import path, not the egg name
-%define 	module	vine
+%define		module		vine
+%define		egg_name	vine
+%define		pypi_name	vine
 Summary:	Python promises
 Name:		python-%{module}
 Version:	1.1.2
 Release:	1
 License:	BSD
 Group:		Libraries/Python
-Source0:	https://pypi.python.org/packages/9f/22/5ca76b672537f764cbbef24f22bf104afad97803eacbe7519b089cc685ab/%{module}-%{version}.tar.gz
+Source0:	https://files.pythonhosted.org/packages/source/v/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 # Source0-md5:	1d978a4f39a22d10f720766e83ea4ba7
 URL:		https://vine.readthedocs.io/en/latest/
 BuildRequires:	rpm-pythonprov
@@ -53,7 +54,7 @@ API documentation for %{module}.
 Dokumentacja API %{module}.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{pypi_name}-%{version}
 
 %build
 %if %{with python2}
@@ -72,7 +73,6 @@ rm -rf _build/html/_sources
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %if %{with python2}
 %py_install
 %endif
@@ -89,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changelog README.rst
 %{py_sitescriptdir}/%{module}
-%{py_sitescriptdir}/%{module}-%{version}-py*.egg-info
+%{py_sitescriptdir}/%{egg_name}-%{version}-py*.egg-info
 %endif
 
 %if %{with python3}
@@ -97,7 +97,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changelog README.rst
 %{py3_sitescriptdir}/%{module}
-%{py3_sitescriptdir}/%{module}-%{version}-py*.egg-info
+%{py3_sitescriptdir}/%{egg_name}-%{version}-py*.egg-info
 %endif
 
 %if %{with doc}
