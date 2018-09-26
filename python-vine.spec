@@ -10,12 +10,12 @@
 %define		pypi_name	vine
 Summary:	Python promises
 Name:		python-%{module}
-Version:	1.1.2
-Release:	3
+Version:	1.1.4
+Release:	1
 License:	BSD
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/v/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
-# Source0-md5:	1d978a4f39a22d10f720766e83ea4ba7
+# Source0-md5:	9fdb971e7fd15b181b84f3bfcf20d11c
 URL:		https://vine.readthedocs.io/en/latest/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
