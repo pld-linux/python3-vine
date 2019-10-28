@@ -11,7 +11,7 @@
 Summary:	Python promises
 Name:		python-%{module}
 Version:	1.1.4
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/v/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
