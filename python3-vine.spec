@@ -19,7 +19,7 @@ Source0:	https://files.pythonhosted.org/packages/source/v/vine/%{pypi_name}-%{ve
 # Source0-md5:	2fc3270a999cdc9341ba173360d62367
 URL:		https://vine.readthedocs.io/
 BuildRequires:	python3-modules >= 1:3.6
-BuildRequires:	python3-setuptools >= 20.6.7
+BuildRequires:	python3-setuptools >= 1:20.6.7
 %if %{with tests}
 BuildRequires:	python3-case >= 1.3.1
 BuildRequires:	python3-pytest >= 3.0
