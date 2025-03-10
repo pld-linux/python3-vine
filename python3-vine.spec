@@ -12,7 +12,7 @@ Summary:	Python promises
 Summary(pl.UTF-8):	Obietnice dla Pythona
 Name:		python3-%{module}
 Version:	5.0.0
-Release:	4
+Release:	5
 License:	BSD
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/v/vine/%{pypi_name}-%{version}.tar.gz
