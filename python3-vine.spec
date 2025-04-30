@@ -11,12 +11,12 @@
 Summary:	Python promises
 Summary(pl.UTF-8):	Obietnice dla Pythona
 Name:		python3-%{module}
-Version:	5.0.0
-Release:	6
+Version:	5.1.0
+Release:	1
 License:	BSD
 Group:		Libraries/Python
 Source0:	https://files.pythonhosted.org/packages/source/v/vine/%{pypi_name}-%{version}.tar.gz
-# Source0-md5:	2fc3270a999cdc9341ba173360d62367
+# Source0-md5:	eb53f54bbe9b6b4d65f072972cea0fcd
 URL:		https://vine.readthedocs.io/
 BuildRequires:	python3-modules >= 1:3.6
 BuildRequires:	python3-setuptools >= 1:20.6.7
