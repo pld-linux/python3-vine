@@ -6,8 +6,6 @@
 %bcond_without	python3 # CPython 3.x module
 
 %define		module		vine
-%define		egg_name	vine
-%define		pypi_name	vine
 Summary:	Python promises
 Summary(pl.UTF-8):	Obietnice dla Pythona
 Name:		python3-%{module}
@@ -15,14 +13,14 @@ Version:	5.1.0
 Release:	1
 License:	BSD
 Group:		Libraries/Python
-Source0:	https://files.pythonhosted.org/packages/source/v/vine/%{pypi_name}-%{version}.tar.gz
+Source0:	https://files.pythonhosted.org/packages/source/v/vine/%{module}-%{version}.tar.gz
 # Source0-md5:	eb53f54bbe9b6b4d65f072972cea0fcd
+Patch0:		vine-pytest.patch
 URL:		https://vine.readthedocs.io/
 BuildRequires:	python3-modules >= 1:3.6
-BuildRequires:	python3-setuptools >= 1:20.6.7
+BuildRequires:	python3-setuptools >= 1:59.2.0
 %if %{with tests}
-BuildRequires:	python3-case >= 1.3.1
-BuildRequires:	python3-pytest >= 3.0
+BuildRequires:	python3-pytest >= 7.2
 %endif
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
@@ -52,14 +50,14 @@ API documentation for vine module.
 Dokumentacja API modułu vine.
 
 %prep
-%setup -q -n %{pypi_name}-%{version}
+%setup -q -n %{module}-%{version}
+%patch -P0 -p1
 
 %build
 %py3_build
 
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
-PYTEST_PLUGINS="case.pytest" \
 %{__python3} -m pytest t/unit
 %endif
 
@@ -80,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc Changelog LICENSE README.rst
 %{py3_sitescriptdir}/%{module}
-%{py3_sitescriptdir}/%{egg_name}-%{version}-py*.egg-info
+%{py3_sitescriptdir}/%{module}-%{version}-py*.egg-info
 
 %if %{with doc}
 %files apidocs

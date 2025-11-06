@@ -1,0 +1,11 @@
+--- vine-5.1.0/t/unit/test_synchronization.py.orig	2021-11-19 08:03:20.000000000 +0100
++++ vine-5.1.0/t/unit/test_synchronization.py	2025-11-06 19:48:02.521723242 +0100
+@@ -8,7 +8,7 @@ from vine.synchronization import barrier
+ 
+ class test_barrier:
+ 
+-    def setup(self):
++    def setup_class(self):
+         self.m1, self.m2, self.m3 = Mock(), Mock(), Mock()
+         self.ps = [promise(self.m1), promise(self.m2), promise(self.m3)]
+ 
